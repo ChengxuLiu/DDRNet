@@ -38,13 +38,14 @@ The output results on Vimeo-90K testing set, DAVIS, UCF101 and SNU-FILM can be d
 ## Dataset
 1. Training set
 	* [Viemo-90K](https://github.com/anchen1011/toflow) dataset. Download the [both triplet training and test set](http://). The `tri_trainlist.txt` file listing the training samples in the download zip file.
-- Make VidUDC33K structure be:
-		```
+       - Make VidUDC33K structure be:
+        ```
 			├────VidUDC33K
 				├────Input
 					├────000
                                         	├────000.npy
-
+                                        	├────...
+                                        	├────049.npy
 					├────001
 					├────...
 					├────676
@@ -54,7 +55,6 @@ The output results on Vimeo-90K testing set, DAVIS, UCF101 and SNU-FILM can be d
 					├────...
 					├────676
         ```
-
 2. Testing set
     * [Viemo-90K](https://github.com/anchen1011/toflow) testset. The `tri_testlist.txt` file listing the testing samples in the download zip file.
     * [DAVIS](https://github.com/HyeongminLEE/AdaCoF-pytorch/tree/master/test_input/davis), [UCF101](https://drive.google.com/file/d/0B7EVK8r0v71pdHBNdXB6TE1wSTQ/view?resourcekey=0-r6ihCy20h3kbgZ3ZdimPiA), and [SNU-FILM](https://myungsub.github.io/CAIN/) dataset.
