@@ -9,6 +9,7 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 - [Dataset](#dataset)
 - [Test](#test)
 - [Train](#train)
+- [Results](#results)
 - [Citation](#citation)
 - [Contact](#contact)
 - [Acknowledgement](#acknowledgement)
@@ -27,17 +28,8 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 ### Visual
 <img src="./fig/result.jpg" width=90%>
 
-
-## Model and Results
-Pre-trained models can be downloaded from [onedrive](https://1drv.ms/u/s!Au4fJlmAZDhlhwjmP0D2RJOQaFqF?e=UHVz3H), [google drive](https://drive.google.com/drive/folders/1JWl22XUc0IOp1mx79_DRtwOwHjO1FP8I?usp=sharing), and [baidu cloud](https://pan.baidu.com/s/1nCjVhwArNajWFDDYwt4IUA)(j3nd).
-* *TTVFI_stage1.pth*: trained from first stage with consistent motion learning.
-* *TTVFI_stage2.pth*: trained from second stage with trajectory-aware Transformer on Viemo-90K dataset.
-
-The output results on Vimeo-90K testing set, DAVIS, UCF101 and SNU-FILM can be downloaded from [onedrive](https://1drv.ms/u/s!Au4fJlmAZDhlhwjmP0D2RJOQaFqF?e=UHVz3H), [google drive](https://drive.google.com/drive/folders/1JWl22XUc0IOp1mx79_DRtwOwHjO1FP8I?usp=sharing), and [baidu cloud](https://pan.baidu.com/s/1nCjVhwArNajWFDDYwt4IUA)(j3nd).
-
-
 ## Dataset
-1. Download the [Video](http://) under `./dataset`.
+1. Download the original video from [google drive](http://) under `./dataset`.
 2. Generate the sequences by `xxx.txt` file listing the training samples in the download zip file.
 ```
 cd ./models/PWCNet/correlation_package_pytorch1_0/
@@ -46,7 +38,7 @@ cd ./models/PWCNet/correlation_package_pytorch1_0/
 <img src="./fig/build_dataset.jpg" width=100%>
 3. Prepare input frames and modify "FirstPath" and "SecondPath" in `./demo.py`
 4. Make VidUDC33K structure be:
-        ```
+```
 			├────VidUDC33K
 				├────Input
 					├────000
@@ -64,7 +56,7 @@ cd ./models/PWCNet/correlation_package_pytorch1_0/
 					├────001
 					├────...
 					├────676
-        ```
+```
 <img src="./fig/dataset.jpg" width=80%>
 
 ## Test
@@ -93,6 +85,9 @@ python train.py --opt ./options/DDRNet/train_DDRNet.json
 ```
 4. The models are saved in `./experiments`
 
+
+## Results
+The output results on VidUDC33K testing set can be downloaded from [google drive](https://).
 
 ## Citation
 If you find the code and pre-trained models useful for your research, please consider citing our paper. :blush:
