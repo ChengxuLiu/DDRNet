@@ -1,4 +1,4 @@
-# [AAAI 2024] D$^2$RNet
+# [AAAI 2024] DDRNet
 This is the official PyTorch implementation of the paper [Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera](https://).
 
 ## Contents
@@ -27,6 +27,7 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 ### Visual
 <img src="./fig/result.jpg" width=90%>
 
+
 ## Model and Results
 Pre-trained models can be downloaded from [onedrive](https://1drv.ms/u/s!Au4fJlmAZDhlhwjmP0D2RJOQaFqF?e=UHVz3H), [google drive](https://drive.google.com/drive/folders/1JWl22XUc0IOp1mx79_DRtwOwHjO1FP8I?usp=sharing), and [baidu cloud](https://pan.baidu.com/s/1nCjVhwArNajWFDDYwt4IUA)(j3nd).
 * *TTVFI_stage1.pth*: trained from first stage with consistent motion learning.
@@ -36,14 +37,20 @@ The output results on Vimeo-90K testing set, DAVIS, UCF101 and SNU-FILM can be d
 
 
 ## Dataset
-1. Training set
-	* [Viemo-90K](https://github.com/anchen1011/toflow) dataset. Download the [both triplet training and test set](http://). The `tri_trainlist.txt` file listing the training samples in the download zip file.
-       - Make VidUDC33K structure be:
+1. Download the [Video](http://) under `./dataset`.
+2. Generate the sequences by `xxx.txt` file listing the training samples in the download zip file.
+```
+cd ./models/PWCNet/correlation_package_pytorch1_0/
+./build.sh
+```
+<img src="./fig/build_dataset.jpg" width=100%>
+3. Prepare input frames and modify "FirstPath" and "SecondPath" in `./demo.py`
+4. Make VidUDC33K structure be:
         ```
 			├────VidUDC33K
 				├────Input
 					├────000
-                                        	├────000.npy
+                                       	        ├────000.npy
                                         	├────...
                                         	├────049.npy
 					├────001
@@ -51,102 +58,40 @@ The output results on Vimeo-90K testing set, DAVIS, UCF101 and SNU-FILM can be d
 					├────676
 				├────GT
 					├────000
+                                       	        ├────000.npy
+                                        	├────...
+                                        	├────049.npy
 					├────001
 					├────...
 					├────676
         ```
-2. Testing set
-    * [Viemo-90K](https://github.com/anchen1011/toflow) testset. The `tri_testlist.txt` file listing the testing samples in the download zip file.
-    * [DAVIS](https://github.com/HyeongminLEE/AdaCoF-pytorch/tree/master/test_input/davis), [UCF101](https://drive.google.com/file/d/0B7EVK8r0v71pdHBNdXB6TE1wSTQ/view?resourcekey=0-r6ihCy20h3kbgZ3ZdimPiA), and [SNU-FILM](https://myungsub.github.io/CAIN/) dataset.
-		- Make DAVIS, UCF101, and SNU-FILM structure be:
-		```
-			├────DAVIS
-				├────input
-				├────gt
-			├────UCF101
-				├────1
-				├────...
-			├────SNU-FILM
-				├────test
-					├────GOPRO_test
-					├────YouTube_test
-				├────test-easy.txt			
-				├────...		
-				├────test-extreme.txt		
-        ```
-## Demo
-1. Clone this github repo
-```
-git clone https://github.com/ChengxuLiu/TTVFI.git
-cd TTVFI
-```
-2. Generate the Correlation package required by [PWCNet](https://github.com/NVlabs/PWC-Net/tree/master/PyTorch/external_packages/correlation-pytorch-master):
-```
-cd ./models/PWCNet/correlation_package_pytorch1_0/
-./build.sh
-```
-3. Download pre-trained weights ([onedrive](https://1drv.ms/u/s!Au4fJlmAZDhlhwjmP0D2RJOQaFqF?e=UHVz3H)|[google drive](https://drive.google.com/drive/folders/1JWl22XUc0IOp1mx79_DRtwOwHjO1FP8I?usp=sharing)|[baidu cloud](https://pan.baidu.com/s/1nCjVhwArNajWFDDYwt4IUA)(j3nd)) under `./checkpoint`
-```
-cd ../../..
-mkdir checkpoint
-```
-4. Prepare input frames and modify "FirstPath" and "SecondPath" in `./demo.py`
-5. Run demo
-```
-python demo.py
-```
-
-
+<img src="./fig/dataset.jpg" width=80%>
 
 ## Test
 1. Clone this github repo
 ```
-git clone https://github.com/ChengxuLiu/TTVFI.git
-cd TTVFI
+git clone https://github.com/ChengxuLiu/DDRNet.git
+cd DDRNet
 ```
-2. Generate the Correlation package required by [PWCNet](https://github.com/NVlabs/PWC-Net/tree/master/PyTorch/external_packages/correlation-pytorch-master):
+2. Prepare testing dataset and modify "folder_lq" and "folder_lq" in `./test.py`
+3. Run test
 ```
-cd ./models/PWCNet/correlation_package_pytorch1_0/
-./build.sh
+python test.py --save_result
 ```
-3. Download pre-trained weights ([onedrive](https://1drv.ms/u/s!Au4fJlmAZDhlhwjmP0D2RJOQaFqF?e=UHVz3H)|[google drive](https://drive.google.com/drive/folders/1JWl22XUc0IOp1mx79_DRtwOwHjO1FP8I?usp=sharing)|[baidu cloud](https://pan.baidu.com/s/1nCjVhwArNajWFDDYwt4IUA)(j3nd)) under `./checkpoint`
-```
-cd ../../..
-mkdir checkpoint
-```
-4. Prepare testing dataset and modify "datasetPath" in `./test.py`
-5. Run test
-```
-mkdir weights
-# Vimeo
-python test.py
-```
+4. The result are saved in `./results`
 
 ## Train
 1. Clone this github repo
 ```
-git clone https://github.com/ChengxuLiu/TTVFI.git
-cd TTVFI
+git clone https://github.com/ChengxuLiu/DDRNet.git
+cd DDRNet
 ```
-2. Generate the Correlation package required by [PWCNet](https://github.com/NVlabs/PWC-Net/tree/master/PyTorch/external_packages/correlation-pytorch-master):
+2. Prepare training dataset and modify "dataroot_gt" and "dataroot_lq" in `./options/DDRNet/train_DDRNet.json`
+3. Run training
 ```
-cd ./models/PWCNet/correlation_package_pytorch1_0/
-./build.sh
+python train.py --opt ./options/DDRNet/train_DDRNet.json
 ```
-3. Prepare training dataset and modify "datasetPath" in `./train_stage1.py` and `./train_stage2.py`
-4. Run training of stage1
-```
-mkdir weights
-# stage one
-python train_stage1.py
-```
-5. The models of stage1 are saved in `./weights` and fed into stage2 (modify "pretrained" in `./train_stage2.py`)
-6. Run training of stage2
-```
-# stage two
-python train_stage2.py
-```
-7. The models of stage2 are also saved in `./weights`
+4. The models are saved in `./experiments`
 
 
 ## Citation
@@ -166,6 +111,6 @@ If you meet any problems, please describe them in issues or contact:
 * Chengxu Liu: <liuchx97@gmail.com>
 
 ## Acknowledgement
-The code of FSI is built upon [BNUDC](https://github.com/JaihyunKoh/BNUDC/tree/main) and [LaMa](https://github.com/advimman/lama), and we express our gratitude to these awesome projects.
+The code of DDRNet is built upon [RVRT](https://github.com/JingyunLiang/RVRT) and [MMagic](https://github.com/open-mmlab/mmagic), and we express our gratitude to these awesome projects.
 
 
