@@ -1,4 +1,4 @@
-# [AAAI 2024] DDRNet
+# [AAAI 2024] D$^2$RNet
 This is the official PyTorch implementation of the paper [Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera](https://).
 
 ## Contents
@@ -36,26 +36,27 @@ cd ./models/PWCNet/correlation_package_pytorch1_0/
 ./build.sh
 ```
 <img src="./fig/build_dataset.jpg" width=100%>
+
 3. Prepare input frames and modify "FirstPath" and "SecondPath" in `./demo.py`
 4. Make VidUDC33K structure be:
 ```
-			├────VidUDC33K
-				├────Input
-					├────000
-                                       	        ├────000.npy
-                                        	├────...
-                                        	├────049.npy
-					├────001
-					├────...
-					├────676
-				├────GT
-					├────000
-                                       	        ├────000.npy
-                                        	├────...
-                                        	├────049.npy
-					├────001
-					├────...
-					├────676
+├────VidUDC33K
+  ├────Input
+    ├────000
+      ├────000.npy
+      ├────...
+      ├────049.npy
+    ├────001
+    ├────...
+    ├────676
+  ├────GT
+    ├────000
+      ├────000.npy
+      ├────...
+      ├────049.npy
+    ├────001
+    ├────...
+    ├────676
 ```
 <img src="./fig/dataset.jpg" width=80%>
 
