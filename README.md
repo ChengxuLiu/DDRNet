@@ -29,34 +29,55 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 <img src="./fig/result.jpg" width=90%>
 
 ## Dataset
-1. Download the original video from [google drive](http://) under `./dataset`.
-2. Generate the sequences by `xxx.txt` file listing the training samples in the download zip file.
+1. Download the original HDR video and Real video from [google drive](http://) under `./dataset`.
+2. Unzip the video
+3. Generate the sequences by `xxx.txt` file listing the training samples in the download zip file. and Run
 ```
-cd ./models/PWCNet/correlation_package_pytorch1_0/
-./build.sh
+cd ./dataset
+python generate_synthvideo.py
+python generate_realdata.py
 ```
 <img src="./fig/build_dataset.jpg" width=100%>
-
-3. Prepare input frames and modify "FirstPath" and "SecondPath" in `./demo.py`
 4. Make VidUDC33K structure be:
 ```
-├────VidUDC33K
-        ├────Input
-                ├────000
-                        ├────000.npy
+├────dataset
+        ├────VidUDC33K
+                ├────Input
+                        ├────000
+                                ├────000.npy
+                                ├────...
+                                ├────049.npy
+                        ├────001
                         ├────...
-                        ├────049.npy
-                ├────001
-                ├────...
-                ├────676
-        ├────GT
-                ├────000
-                        ├────000.npy
+                        ├────676
+                ├────GT
+                        ├────000
+                                ├────000.npy
+                                ├────...
+                                ├────049.npy
+                        ├────001
                         ├────...
-                        ├────049.npy
-                ├────001
-                ├────...
-                ├────676
+                        ├────676
+        ├────VidUDC33K_real
+                ├────Input
+                        ├────000
+                                ├────000.npy
+                                ├────...
+                                ├────049.npy
+                        ├────001
+                        ├────...
+                        ├────009
+                ├────GT
+                        ├────000
+                                ├────000.npy
+                                ├────...
+                                ├────049.npy
+                        ├────001
+                        ├────...
+                        ├────009
+        ├────synthvideo_meta.txt
+        ├────realvideo_meta.txt
+        ├────ZTE_new_psf_5.npy
 ```
 <img src="./fig/dataset.jpg" width=80%>
 
