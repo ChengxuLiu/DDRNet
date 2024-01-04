@@ -40,8 +40,10 @@ unzip Real_Video.zip
 ```
 python generate_synthvideo.py
 ```
-The principle of obtaining synthetic dataset is as follows:
+   The principle of obtaining synthetic dataset is as follows:
+
 <img src="./fig/build_dataset.jpg" width=100%>
+
 4. Generate the sequences for real scenario validation based on `realvideo_meta.txt`, run
 ```
 python generate_realdata.py
@@ -87,8 +89,9 @@ python generate_realdata.py
                 ├────realvideo_meta.txt
                 ├────ZTE_new_psf_5.npy
 ```
-The distribution of the dataset is as follows:
-<img src="./fig/dataset.jpg" width=60%>
+   The distribution of the dataset is as follows:
+
+<img src="./fig/dataset.jpg" width=70%>
 
 ## Test
 1. Clone this github repo
