@@ -29,17 +29,24 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 <img src="./fig/result.jpg" width=90%>
 
 ## Dataset
-1. Download the original HDR video and Real video from [google drive](http://) under `./dataset`.
-2. Unzip the video
-3. Generate the sequences by `xxx.txt` file listing the training samples in the download zip file. and Run
+1. Download the original HDR video and real video from [google drive](http://) under `./dataset`.
+2. Unzip the original HDR video and real video.
 ```
 cd ./dataset
+unzip Video.zip
+unzip Real_Video.zip
+```
+3. Generate the sequences for training and testing based on `synthvideo_meta.txt` and `ZTE_new_psf_5.npy`, run
+```
 python generate_synthvideo.py
+```
+The principle of obtaining synthetic dataset is as follows:
+<img src="./fig/build_dataset.jpg" width=100%>
+4. Generate the sequences for real scenario validation based on `realvideo_meta.txt`, run
+```
 python generate_realdata.py
 ```
-<img src="./fig/build_dataset.jpg" width=100%>
-
-4. Make VidUDC33K structure be:
+5. Make VidUDC33K structure be:
 ```
         ├────dataset
                 ├────VidUDC33K
@@ -80,8 +87,8 @@ python generate_realdata.py
                 ├────realvideo_meta.txt
                 ├────ZTE_new_psf_5.npy
 ```
-
-<img src="./fig/dataset.jpg" width=80%>
+The distribution of the dataset is as follows:
+<img src="./fig/dataset.jpg" width=60%>
 
 ## Test
 1. Clone this github repo
