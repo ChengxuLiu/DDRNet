@@ -41,7 +41,7 @@ python generate_realdata.py
 
 4. Make VidUDC33K structure be:
 ```
-├────dataset
+        ├────dataset
         ├────VidUDC33K
                 ├────Input
                         ├────000
@@ -80,6 +80,7 @@ python generate_realdata.py
         ├────realvideo_meta.txt
         ├────ZTE_new_psf_5.npy
 ```
+
 <img src="./fig/dataset.jpg" width=80%>
 
 ## Test
