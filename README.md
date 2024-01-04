@@ -38,6 +38,7 @@ python generate_synthvideo.py
 python generate_realdata.py
 ```
 <img src="./fig/build_dataset.jpg" width=100%>
+
 4. Make VidUDC33K structure be:
 ```
 ├────dataset

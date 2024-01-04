@@ -270,7 +270,7 @@ if __name__ == '__main__':
                         type=str, default='./VidUDC33K_png/')
     
     parser.add_argument('--txt_path', help='Build Dataset from txt file.', 
-                        type=str, default='./trainval.txt')
+                        type=str, default='./synthvideo_meta.txt')
 
     args = parser.parse_args()
     psf = np.load(args.psf_path)
