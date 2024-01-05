@@ -29,7 +29,7 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 <img src="./fig/result.jpg" width=90%>
 
 ## Dataset
-1. Download the original HDR video and real video from [google drive](https://drive.google.com/drive/folders/1x3rNdB-NuzqwdLlkl516z624t1fPdPOB?usp=sharing) under `./dataset`.
+1. Download the original HDR video and real video from [baidu drive](https://pan.baidu.com/s/1_OEenQuDR-282CbKCHII3w)(4k84) under `./dataset`.
 2. Unzip the original HDR video and real video.
 ```
 cd ./dataset
@@ -121,7 +121,7 @@ python train.py --opt ./options/DDRNet/train_DDRNet.json
 
 
 ## Results
-The output results on VidUDC33K testing set can be downloaded from [google drive](https://drive.google.com/drive/folders/1x3rNdB-NuzqwdLlkl516z624t1fPdPOB?usp=sharing).
+The output results on VidUDC33K testing set can be downloaded from [google drive](https://drive.google.com/drive/folders/1x3rNdB-NuzqwdLlkl516z624t1fPdPOB?usp=sharing) and [baidu drive](https://pan.baidu.com/s/1_OEenQuDR-282CbKCHII3w)(4k84).
 
 ## Citation
 If you find the code and pre-trained models useful for your research, please consider citing our paper. :blush:
