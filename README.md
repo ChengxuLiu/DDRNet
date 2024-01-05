@@ -126,13 +126,7 @@ The output results on VidUDC33K testing set can be downloaded from [google drive
 ## Citation
 If you find the code and pre-trained models useful for your research, please consider citing our paper. :blush:
 ```
-@article{liu2023ttvfi,
-  title={Ttvfi: Learning trajectory-aware transformer for video frame interpolation},
-  author={Liu, Chengxu and Yang, Huan and Fu, Jianlong and Qian, Xueming},
-  journal={IEEE Transactions on Image Processing},
-  year={2023},
-  publisher={IEEE}
-}
+to do
 ``` 
 
 ## Contact
@@ -140,6 +134,6 @@ If you meet any problems, please describe them in issues or contact:
 * Chengxu Liu: <liuchx97@gmail.com>
 
 ## Acknowledgement
-The code of DDRNet is built upon [RVRT](https://github.com/JingyunLiang/RVRT) and [MMagic](https://github.com/open-mmlab/mmagic), and we express our gratitude to these awesome projects.
+The code of DDRNet is built upon [RVRT](https://github.com/JingyunLiang/RVRT), [DISCNet](https://github.com/jnjaby/DISCNet), and [MMagic](https://github.com/open-mmlab/mmagic), and we express our gratitude to these awesome projects.
 
 
