@@ -47,7 +47,9 @@ class VideoRecurrentTrainDataset(data.Dataset):
                     self.keys.append(keys[i])
                     self.total_num_frames.append(total_num_frames[i])
                     self.start_frames.append(start_frames[i])
-
+        # file client (io backend)
+        self.file_client = None
+        self.io_backend_opt = opt['io_backend']
         # temporal augmentation configs
         self.interval_list = opt.get('interval_list', [1])
         self.random_reverse = opt.get('random_reverse', False)
@@ -70,6 +72,9 @@ class VideoRecurrentTrainDataset(data.Dataset):
         return mapped_x
 
     def __getitem__(self, index):
+        if self.file_client is None:
+            self.file_client = utils_video.FileClient(self.io_backend_opt.pop('type'), **self.io_backend_opt)
+
         key = self.keys[index]
         total_num_frames = self.total_num_frames[index]
         start_frames = self.start_frames[index]
@@ -98,12 +103,12 @@ class VideoRecurrentTrainDataset(data.Dataset):
             img_lq_path = key +  f'/{neighbor:{self.filename_tmpl}}' + f'.{self.filename_ext}'
             img_gt_path = key + f'/{neighbor:{self.filename_tmpl}}' + f'.{self.filename_ext}'
             # get LQ
-            img_lq = np.load(os.path.join(self.lq_root, 'Input',img_lq_path))
+            img_lq = self.file_client.get(os.path.join(self.lq_root, 'Input',img_lq_path), 'lq')
             img_lq = self._tonemap(img_lq)
             img_lqs.append(img_lq)
 
             # get GT
-            img_gt = np.load(os.path.join(self.gt_root, 'GT',img_gt_path))
+            img_gt = self.file_client.get(os.path.join(self.gt_root, 'GT',img_gt_path), 'gt')
             img_gt = self._tonemap(img_gt)
             img_gts.append(img_gt)
 
