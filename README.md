@@ -5,7 +5,7 @@ This is the official PyTorch implementation of the paper [Decoupling Degradation
 - [Introduction](#introduction)
   - [Contribution](#contribution)
   - [Overview](#overview)
-  - [Visual](#Visual)
+  - [Visual](#visual)
 - [Dataset](#dataset)
 - [Test](#test)
 - [Train](#train)
@@ -116,9 +116,7 @@ cd DDRNet
 3. Run training
 ```
 python train.py --opt ./options/DDRNet/train_DDRNet.json
-```
-        or
-```
+or
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=23333 train.py --opt ./options/DDRNet/train_DDRNet.json --dist True
 ```
 4. The models are saved in `./experiments`
