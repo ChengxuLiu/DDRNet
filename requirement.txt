@@ -1,5 +1,6 @@
 opencv-python
 scikit-image
+matplotlib
 pillow
 torchvision
 hdf5storage
