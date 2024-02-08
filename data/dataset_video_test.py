@@ -73,8 +73,8 @@ class VideoRecurrentTestDataset(data.Dataset):
             img_lq_path = folder + '/' + str(ind).zfill(3) +'.npy'
             img_gt_path =folder + '/' + str(ind).zfill(3) +'.npy'
 
-            img_lq = np.load(os.path.join('/dataset/VidUDC33K/Input',img_lq_path))
-            img_gt = np.load(os.path.join('/dataset/VidUDC33K/GT',img_gt_path))
+            img_lq = np.load(os.path.join(self.lq_root, 'Input',img_lq_path))
+            img_gt = np.load(os.path.join(self.gt_root, 'GT',img_gt_path))
             img_lq = self._tonemap(img_lq)
             img_gt = self._tonemap(img_gt)
 
