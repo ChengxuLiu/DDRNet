@@ -117,6 +117,10 @@ cd DDRNet
 ```
 python train.py --opt ./options/DDRNet/train_DDRNet.json
 ```
+ or
+```
+python -m torch.distributed.launch --nproc_per_node=4 --master_port=23333 train.py --opt ./options/DDRNet/train_DDRNet.json --dist True
+```
 4. The models are saved in `./experiments`
 
 
