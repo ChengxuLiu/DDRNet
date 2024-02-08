@@ -6,7 +6,6 @@ import random
 from os import path as osp
 from torch.nn import functional as F
 from abc import ABCMeta, abstractmethod
-import nori2 as nori
 import pickle as pkl
 
 def scandir(dir_path, suffix=None, recursive=False, full_path=False):
