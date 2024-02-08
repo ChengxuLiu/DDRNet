@@ -2,7 +2,7 @@
     "task": "train_DDRNet"
     , "model": "DDRNet"
     , "gpu_ids": [0,1,2,3]
-    , "dist": false
+    , "dist": true
     , "find_unused_parameters": false
     , "use_static_graph": true
   
@@ -24,6 +24,7 @@
         , "filename_tmpl": "03d"
         , "filename_ext": "npy"
         , "test_mode": false
+        , "io_backend": {"type": "npy"}
         , "num_frame": 30
         , "gt_size": 256
         , "interval_list": [1]
@@ -41,6 +42,7 @@
         , "dataroot_gt": "/dataset/VidUDC33K/"
         , "dataroot_lq": "/dataset/VidUDC33K/"
         , "cache_data": false
+        , "io_backend": {"type": "npy"}
         , "num_frame": 50
         , "gt_size": [256,256]
       }
