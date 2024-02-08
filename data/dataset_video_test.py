@@ -22,11 +22,10 @@ class VideoRecurrentTestDataset(data.Dataset):
 
         self.imgs_lq, self.imgs_gt = {}, {}
         subfolders = ['001', '012', '018', '039', '044', '046', '062', '065', '070', '095', '102', '116', 
-                '143', '145', '164', '196', '207', '225', '263', '278', '288', '290', '365', '381', 
-                '435', '448', '465', '468', '485', '489', '527', '528', '540', '545', '552', '559', 
-                '581', '584', '592', '597', '602', '606', '614', '620', '628', '629', '635', '636', 
-                '653', '676']
-
+                 '143', '145', '164', '196', '207', '225', '263', '278', '288', '290', '365', '381', 
+                 '435', '448', '465', '468', '485', '489', '527', '528', '540', '545', '552', '559', 
+                 '581', '584', '592', '597', '602', '606', '614', '620', '628', '629', '635', '636', 
+                 '653', '676']
         for subfolder in subfolders:
             img_paths_lq=[]
             img_paths_gt=[]
@@ -48,7 +47,8 @@ class VideoRecurrentTestDataset(data.Dataset):
 
             self.imgs_lq[subfolder] = img_paths_lq
             self.imgs_gt[subfolder] = img_paths_gt
-
+        self.file_client = None
+        self.io_backend_opt = opt['io_backend']
         # Find unique folder strings
         self.folders = sorted(list(set(self.data_info['folder'])))
 
@@ -66,6 +66,9 @@ class VideoRecurrentTestDataset(data.Dataset):
         return mapped_x
 
     def __getitem__(self, index):
+        if self.file_client is None:
+            self.file_client = utils_video.FileClient(self.io_backend_opt.pop('type'), **self.io_backend_opt)
+
         folder = self.folders[index]
         img_lqs = []
         img_gts = []
@@ -73,8 +76,8 @@ class VideoRecurrentTestDataset(data.Dataset):
             img_lq_path = folder + '/' + str(ind).zfill(3) +'.npy'
             img_gt_path =folder + '/' + str(ind).zfill(3) +'.npy'
 
-            img_lq = np.load(os.path.join(self.lq_root, 'Input',img_lq_path))
-            img_gt = np.load(os.path.join(self.gt_root, 'GT',img_gt_path))
+            img_lq = self.file_client.get(os.path.join(self.lq_root, 'Input',img_lq_path), 'lq')
+            img_gt = self.file_client.get(os.path.join(self.gt_root, 'GT',img_gt_path), 'gt')
             img_lq = self._tonemap(img_lq)
             img_gt = self._tonemap(img_gt)
 
