@@ -19,8 +19,6 @@ from torch.nn.modules.utils import _pair, _single
 import numpy as np
 from functools import reduce, lru_cache
 from operator import mul
-from einops import rearrange
-from einops.layers.torch import Rearrange
 import pdb
 
 
