@@ -98,12 +98,12 @@ class VideoRecurrentTrainDataset(data.Dataset):
             img_lq_path = key +  f'/{neighbor:{self.filename_tmpl}}' + f'.{self.filename_ext}'
             img_gt_path = key + f'/{neighbor:{self.filename_tmpl}}' + f'.{self.filename_ext}'
             # get LQ
-            img_lq = np.load(os.path.join('/dataset/VidUDC33K/Input',img_lq_path))
+            img_lq = np.load(os.path.join(self.lq_root, 'Input',img_lq_path))
             img_lq = self._tonemap(img_lq)
             img_lqs.append(img_lq)
 
             # get GT
-            img_gt = np.load(os.path.join('/dataset/VidUDC33K/GT',img_gt_path))
+            img_gt = np.load(os.path.join(self.gt_root, 'GT',img_gt_path))
             img_gt = self._tonemap(img_gt)
             img_gts.append(img_gt)
 
