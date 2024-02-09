@@ -501,7 +501,6 @@ class DDRNet(nn.Module):
             feat_prevT_2 = feat_current_2
             feat_prevT_3 = feat_current_3
 
-            # second-order deformable alignment
             if i > 0:
                 feat_prev_1 = feat_set_1[mapping_idx[idx+prev_id]]
                 feat_prev_2 = feat_set_2[mapping_idx[idx+prev_id]]
@@ -626,7 +625,6 @@ class DDRNet(nn.Module):
                     flows['level_3'] = flows_forward[2].view(n,t-1,2,h // 8, w // 8)
                 feats,imgs = self.propagate(lqs, feats, maps,  imgs, module, flows)
 
-        # 
         feats_1 = torch.cat(feats['forward_1_level_1'],dim=0)
         feats_2 = torch.cat(feats['forward_1_level_2'],dim=0)
         feats_3 = torch.cat(feats['forward_1_level_3'],dim=0)
