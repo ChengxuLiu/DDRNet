@@ -128,7 +128,12 @@ The output results on VidUDC33K testing set can be downloaded from [google drive
 ## Citation
 If you find the code and pre-trained models useful for your research, please consider citing our paper. :blush:
 ```
-to do
+@inproceedings{xint2023freqsel, 
+    title = {Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera},
+    author = {Chengxu Liu, Xuan Wang, Yuanting Fan, Shuai Li and Xueming Qian}, 
+    booktitle = {Proceedings of the 38th AAAI Conference on Artificial Intelligence}, 
+    year = {2024}
+    }
 ``` 
 
 ## Contact
