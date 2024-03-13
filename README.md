@@ -130,7 +130,7 @@ If you find the code and pre-trained models useful for your research, please con
 ```
 @inproceedings{liu2024decoupling, 
     title = {Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera},
-    author = {Chengxu Liu, Xuan Wang, Yuanting Fan, Shuai Li and Xueming Qian}, 
+    author = {Liu, Chengxu and Wang, Xuan and Fan, Yuanting Fan and Li, Shuai and Qian, Xueming}, 
     booktitle = {Proceedings of the 38th AAAI Conference on Artificial Intelligence}, 
     year = {2024}
     }
