@@ -2,7 +2,7 @@
     "task": "train_DDRNet"
     , "model": "DDRNet"
     , "gpu_ids": [0,1,2,3]
-    , "num_gpu": 2
+    , "num_gpu": 4
     , "dist": true
     , "find_unused_parameters": false
     , "use_static_graph": false
