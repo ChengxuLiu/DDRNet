@@ -1,5 +1,5 @@
 # [AAAI 2024] DDRNet
-This is the official PyTorch implementation of the paper [Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera](https://).
+This is the official PyTorch implementation of the paper [Decoupling Degradations with Recurrent Network for Video Restoration in Under-Display Camera](https://arxiv.org/abs/2403.05660).
 
 ## Contents
 - [Introduction](#introduction)
